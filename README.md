@@ -1,5 +1,11 @@
 # 🚀 Antigravity - Secure Communication Platform
 
+[![GitHub](https://img.shields.io/badge/GitHub-Pommovore%2Fcommunicator__gn__sw-blue?logo=github)](https://github.com/Pommovore/communicator_gn_sw)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green?logo=node.js)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-18.3-blue?logo=react)](https://reactjs.org/)
+[![Tests](https://img.shields.io/badge/Tests-17%2F17%20passing-success)](./VALIDATION-REPORT.md)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
 Application de communication sécurisée avec gestion de contacts, documents et permissions, inspirée de l'univers Star Wars.
 
 ## ✨ Fonctionnalités

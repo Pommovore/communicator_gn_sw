@@ -63,38 +63,6 @@ async function deleteUser(id) {
 
 async function addContact(userId, contactId) {
   // Check if exists
-  const exists = await contacts.findOne({ user_id: userId, contact_id: contactId });
-  if (!exists) {
-    await contacts.insert({ user_id: userId, contact_id: contactId });
-  }
-}
-
-async function getContacts(userId) {
-  // Explicit contacts
-  const myContacts = await contacts.find({ user_id: userId });
-  const contactIds = myContacts.map(c => c.contact_id);
-
-  // Admins/Operators
-  const admins = await users.find({ role: { $in: ['ADMIN', 'OPERATOR'] } });
-  const adminIds = admins.map(a => a._id).filter(id => id !== userId);
-
-  const allIds = [...new Set([...contactIds, ...adminIds])];
-
-  const result = await users.find({ _id: { $in: allIds } });
-  return result.map(u => ({ id: u._id, ...u }));
-}
-
-async function createDocument(ownerId, type, filename) {
-  const doc = await documents.insert({ owner_id: ownerId, type, filename, created_at: new Date() });
-  await permissions.insert({ user_id: ownerId, document_id: doc._id });
-  return doc._id;
-}
-
-async function getDocumentsForUser(userId) {
-  const perms = await permissions.find({ user_id: userId });
-  const docIds = perms.map(p => p.document_id);
-  const docs = await documents.find({ _id: { $in: docIds } });
-  return docs.map(d => ({ id: d._id, ...d }));
 }
 
 async function getDocumentById(docId) {
