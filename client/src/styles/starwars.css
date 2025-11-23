@@ -1,0 +1,154 @@
+:root {
+  --sw-black: #000000;
+  --sw-blue: #00e5ff;
+  /* Hologram Blue */
+  --sw-red: #ff0000;
+  /* Sith Red */
+  --sw-yellow: #ffe81f;
+  /* Star Wars Yellow */
+  --sw-grey: #2c2c2c;
+  --sw-text: #ffffff;
+  --sw-font: 'Orbitron', sans-serif;
+  /* Assuming we import this or similar */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--sw-black);
+  color: var(--sw-text);
+  font-family: 'Courier New', Courier, monospace;
+  /* Fallback */
+  overflow: hidden;
+  /* Full screen app feel */
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Holographic Effect */
+.hologram-box {
+  border: 1px solid var(--sw-blue);
+  box-shadow: 0 0 10px var(--sw-blue), inset 0 0 20px rgba(0, 229, 255, 0.2);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.hologram-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 229, 255, 0.1) 50%,
+      rgba(0, 0, 0, 0) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hologram-text {
+  color: var(--sw-blue);
+  text-shadow: 0 0 5px var(--sw-blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sw-btn {
+  background: transparent;
+  border: 1px solid var(--sw-blue);
+  color: var(--sw-blue);
+  padding: 10px 20px;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px var(--sw-blue);
+}
+
+.sw-btn:hover {
+  background: var(--sw-blue);
+  color: var(--sw-black);
+  box-shadow: 0 0 15px var(--sw-blue);
+}
+
+.sw-btn.danger {
+  border-color: var(--sw-red);
+  color: var(--sw-red);
+  box-shadow: 0 0 5px var(--sw-red);
+}
+
+.sw-btn.danger:hover {
+  background: var(--sw-red);
+  color: var(--sw-black);
+  box-shadow: 0 0 15px var(--sw-red);
+}
+
+.sw-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--sw-blue);
+  color: var(--sw-blue);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.sw-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--sw-blue);
+}
+
+/* Animations */
+@keyframes flicker {
+  0% {
+    opacity: 0.9;
+  }
+
+  5% {
+    opacity: 0.5;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.flicker {
+  animation: flicker 2s infinite;
+}
+
+/* Alert */
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert-box {
+  border: 2px solid var(--sw-red);
+  background: black;
+  padding: 20px;
+  color: var(--sw-red);
+  text-transform: uppercase;
+  box-shadow: 0 0 20px var(--sw-red);
+}

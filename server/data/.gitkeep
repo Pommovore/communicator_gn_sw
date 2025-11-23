@@ -1,0 +1,2 @@
+# Ce fichier permet de versionner le dossier data vide
+# Les fichiers de base de données ne sont pas versionnés (voir .gitignore)

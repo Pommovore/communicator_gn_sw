@@ -1,0 +1,2 @@
+# Ce fichier permet de versionner le dossier ssl vide
+# Les certificats SSL ne sont pas versionnés (voir .gitignore)
